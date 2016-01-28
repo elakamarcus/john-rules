@@ -1,0 +1,18 @@
+#I found a few patterns missing from common john-rules available online. 
+#Please see below, explanation of the rule is in the rule name:
+
+[List.Rules:AppendSpecialCurrentYear201X]
+-[c:] \p[c:] Az"[!$@#%.]201[0-9]" <+
+-[c:] \p[c:] Azq[^&()_+\-={}|[\]\\;'":,/<>?`~*]201[0-9]q <+
+
+[List.Rules:AppendSpecialCurrentYear19XX]
+-[c:] \p[c:] Az"[!$@#%.]19[0-9][9-0]" <+
+-[c:] \p[c:] Azq[^&()_+\-={}|[\]\\;'":,/<>?`~*]19[0-9][0-9]q <+
+
+[List.Rules:AppendSpecialNumber]
+-[c:] \p[c:] Az"[!$@#%.][0-9]" <+
+-[c:] \p[c:] Azq[^&()_+\-={}|[\]\\;'":,/<>?`~*][0-9]q <+
+
+[List.Rules:AppendNumberSpecial]
+-[c:] \p[c:] Az"[0-9][!$@#%.]" <+
+-[c:] \p[c:] Azq[0-9][^&()_+\-={}|[\]\\;'":,/<>?`~*]q <+
