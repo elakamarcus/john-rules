@@ -14,13 +14,20 @@ cat rules >> /etc/john/john.conf
 preferably in project-specific folder
 
 ```zsh
-cewl -d 2 -a --meta_file testmeta -e --email_file testemail -w cwords.l {URLGOESHERE}
+cewl -d 2 -a --meta_file testmeta -e --email_file testemail -w temp.l {URLGOESHERE}
 ```
+
+Now to convert any upper-case characters to lower-case:
+
+```zsh
+tr '[:upper:]' '[:lower:]' < temp.l > cwords.l
+```
+
 ### Explanation
 Parameters are:
 
 - ```-d 2``` the depth of the website, how far to follow links.
-- ```- a --meta_file afile``` include metadata and save it to afile.
+- ```-a --meta_file afile``` include metadata and save it to afile.
 - ```-e --email_file efile``` include email findings and save to efile.
 - ```-w cwords.l``` output the scraped words to cwords.l
 
