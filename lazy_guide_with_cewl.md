@@ -17,11 +17,18 @@ preferably in project-specific folder
 cewl -d 2 -a --meta_file testmeta -e --email_file testemail -w temp.l {URLGOESHERE}
 ```
 
+... because there might be non alpha characters:
+
+```zsh
+grep -e "[A-Za-z]" temp.l | sort | uniq > temp.q
+```
+
 Now to convert any upper-case characters to lower-case:
 
 ```zsh
-tr '[:upper:]' '[:lower:]' < temp.l > cwords.l
+tr '[:upper:]' '[:lower:]' < temp.q > cwords.l
 ```
+
 
 ### Explanation
 Parameters are:
